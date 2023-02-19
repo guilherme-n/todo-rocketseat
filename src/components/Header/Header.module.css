@@ -1,0 +1,19 @@
+.header {
+	background-color: var(--gray-700);
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.add-new-task {
+	position: relative;
+	top: -30px;
+	width: 740px;
+	left: calc(50vw - 378px);
+}
+
+.add-new-task > div {
+	display: flex;
+	gap: 8px;
+}
