@@ -1,0 +1,21 @@
+.wrapper {
+	display: flex;
+	gap: 8px;
+	font: 14px inter;
+	font-weight: bold;
+}
+
+.wrapper:nth-child(1) {
+	color: var(--blue);
+}
+
+.wrapper:nth-child(2) {
+	color: var(--purple);
+}
+
+.wrapper :nth-child(2) {
+	border-radius: 50%;
+	background-color: var(--gray-400);
+	color: var(--gray-200);
+	padding: 2px 8px;
+}

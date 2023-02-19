@@ -12,7 +12,7 @@ export function Header() {
 			<div className={styles['add-new-task']}>
 				<div>
 					<Input />
-					<Button text='Criar' />
+					<Button text='Create' />
 				</div>
 			</div>
 		</>

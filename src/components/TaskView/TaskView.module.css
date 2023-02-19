@@ -1,0 +1,10 @@
+.main {
+	width: 736px;
+	margin: auto;
+}
+
+.main > div:first-child {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 24px;
+}

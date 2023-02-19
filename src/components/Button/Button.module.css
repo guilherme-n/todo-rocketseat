@@ -15,4 +15,6 @@
 
 .button:hover {
 	cursor: pointer;
+	background-color: var(--blue);
+	transition: background-color 0.3s;
 }

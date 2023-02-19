@@ -1,0 +1,17 @@
+.wrapper {
+	padding: 64px 24px;
+	border-top: 1px solid var(--gray-400);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var(--gray-300);
+	font: 16px inter;
+}
+
+.wrapper img + span {
+	font-weight: bold;
+}
+
+.wrapper img {
+	margin-bottom: 16px;
+}

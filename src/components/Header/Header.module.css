@@ -7,10 +7,10 @@
 }
 
 .add-new-task {
+	width: 736px;
 	position: relative;
 	top: -30px;
-	width: 740px;
-	left: calc(50vw - 378px);
+	margin: auto;
 }
 
 .add-new-task > div {
