@@ -1,8 +1,8 @@
-import styles from './Taskcounter.module.css';
+import styles from './TaskCounter.module.css';
 
 interface TaskCounterProps {
 	text: string;
-	count: number;
+	count: string;
 }
 
 export function TaskCounter({ text, count }: TaskCounterProps) {

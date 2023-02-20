@@ -1,16 +1,34 @@
+import { TaskType } from '../../types/TaskType';
+import { Task } from '../Task/Task';
 import { TaskCounter } from '../TaskCounter/TaskCounter';
 import { NoTaskCreated } from './NoTaskCreated/NoTaskCreated';
 
 import style from './TaskView.module.css';
 
-export function TaskView() {
+interface TaskViewProps {
+	tasks: TaskType[];
+	onDelete: (id: string) => void;
+}
+
+export function TaskView({ tasks, onDelete }: TaskViewProps) {
+	const countTasks = tasks.length.toString();
+	const countCompleteTasks = tasks
+		.filter((task) => task.isComplete)
+		.length.toString();
 	return (
 		<main className={style.main}>
 			<div>
-				<TaskCounter text='Tasks  created' count={0} />
-				<TaskCounter text='Done' count={0} />
+				<TaskCounter text='Tasks  created' count={countTasks} />
+				<TaskCounter
+					text='Done'
+					count={`${countCompleteTasks} of ${countTasks}`}
+				/>
 			</div>
-			<NoTaskCreated />
+			{tasks.length > 0 ? (
+				tasks.map((task) => <Task task={task} onDelete={onDelete} />)
+			) : (
+				<NoTaskCreated />
+			)}
 		</main>
 	);
 }

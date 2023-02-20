@@ -5,12 +5,12 @@
 	width: 100%;
 	padding: 16px;
 	border: 1px solid var(--gray-700);
+	color: var(--gray-100);
 }
 
 .input:focus {
 	border: 1px solid var(--purpleDark);
 	outline: none;
-	color: var(--gray-100);
 }
 
 .input::placeholder {

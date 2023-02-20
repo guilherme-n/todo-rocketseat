@@ -1,7 +1,17 @@
+import { LegacyRef, MutableRefObject } from 'react';
 import style from './Input.module.css';
 
-export function Input() {
+interface InputProps {
+	inputRef?: MutableRefObject<HTMLInputElement | null>;
+}
+
+export function Input({ inputRef }: InputProps) {
 	return (
-		<input type='text' placeholder='Add new task' className={style.input} />
+		<input
+			ref={inputRef}
+			type='text'
+			placeholder='Add new task'
+			className={style.input}
+		/>
 	);
 }

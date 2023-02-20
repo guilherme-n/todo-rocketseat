@@ -1,0 +1,24 @@
+.wrapper {
+	display: flex;
+	gap: 12px;
+	background-color: var(--gray-500);
+	padding: 16px;
+	align-items: start;
+	margin-top: 12px;
+}
+
+/* .wrapper input[type='checkbox'] {
+	border-radius: 50%;
+} */
+
+.wrapper > span {
+	color: var(--gray-100);
+	font: 14px inter;
+	flex-grow: 1;
+	text-align: justify;
+}
+
+.wrapper.complete > span {
+	text-decoration: line-through var(--gray-300);
+	color: var(--gray-300);
+}
