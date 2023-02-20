@@ -24,8 +24,23 @@ function App() {
 			isComplete: false,
 		};
 
-		setTasks([...tasks, task]);
+		setTasks([task, ...tasks]);
 		inputRef.current.value = '';
+		inputRef.current.focus();
+	};
+
+	const handleCompleteIncompleteTask = (id: string) => {
+		let tasksUpdated = tasks
+			.map((task) => {
+				if (task.id === id) {
+					return { ...task, isComplete: !task.isComplete };
+				} else {
+					return task;
+				}
+			})
+			.sort((a, b) => (!a.isComplete && b.isComplete ? -1 : 0));
+
+		setTasks([...tasksUpdated]);
 	};
 
 	const handleDeleteTask = (id: string) => {
@@ -36,7 +51,11 @@ function App() {
 	return (
 		<>
 			<Header onCreateTask={handleCreateTask} inputRef={inputRef} />
-			<TaskView tasks={tasks} onDelete={handleDeleteTask} />
+			<TaskView
+				tasks={tasks}
+				onCompleteIncompleteTask={handleCompleteIncompleteTask}
+				onDelete={handleDeleteTask}
+			/>
 		</>
 	);
 }

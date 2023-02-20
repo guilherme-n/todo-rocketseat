@@ -4,13 +4,17 @@ import styles from './Task.module.css';
 
 interface TaskProps {
 	task: TaskType;
+	onCompleteIncompleteTask: (id: string) => void;
 	onDelete: (id: string) => void;
 }
 
-export function Task({ task, onDelete }: TaskProps) {
+export function Task({ task, onCompleteIncompleteTask, onDelete }: TaskProps) {
 	return (
 		<div className={`${styles.wrapper} ${task.isComplete && styles.complete}`}>
-			<input type='checkbox' />
+			<input
+				type='checkbox'
+				onClick={() => onCompleteIncompleteTask(task.id)}
+			/>
 			<span>{task.text}</span>
 			<div style={{ minWidth: '20px' }}>
 				<Trash

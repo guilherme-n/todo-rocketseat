@@ -7,9 +7,10 @@
 	margin-top: 12px;
 }
 
-/* .wrapper input[type='checkbox'] {
-	border-radius: 50%;
-} */
+.wrapper input[type='checkbox'] {
+	/* border-radius: 50%; */
+	cursor: pointer;
+}
 
 .wrapper > span {
 	color: var(--gray-100);
@@ -21,4 +22,8 @@
 .wrapper.complete > span {
 	text-decoration: line-through var(--gray-300);
 	color: var(--gray-300);
+}
+
+.wrapper svg:hover {
+	cursor: pointer;
 }

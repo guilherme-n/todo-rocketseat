@@ -7,10 +7,15 @@ import style from './TaskView.module.css';
 
 interface TaskViewProps {
 	tasks: TaskType[];
+	onCompleteIncompleteTask: (id: string) => void;
 	onDelete: (id: string) => void;
 }
 
-export function TaskView({ tasks, onDelete }: TaskViewProps) {
+export function TaskView({
+	tasks,
+	onCompleteIncompleteTask,
+	onDelete,
+}: TaskViewProps) {
 	const countTasks = tasks.length.toString();
 	const countCompleteTasks = tasks
 		.filter((task) => task.isComplete)
@@ -25,7 +30,14 @@ export function TaskView({ tasks, onDelete }: TaskViewProps) {
 				/>
 			</div>
 			{tasks.length > 0 ? (
-				tasks.map((task) => <Task task={task} onDelete={onDelete} />)
+				tasks.map((task) => (
+					<Task
+						key={task.id}
+						task={task}
+						onCompleteIncompleteTask={onCompleteIncompleteTask}
+						onDelete={onDelete}
+					/>
+				))
 			) : (
 				<NoTaskCreated />
 			)}

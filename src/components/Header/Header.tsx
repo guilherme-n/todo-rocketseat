@@ -2,7 +2,7 @@ import styles from './Header.module.css';
 import logo from '../../assets/logo.svg';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
-import { MutableRefObject } from 'react';
+import { MutableRefObject, KeyboardEvent } from 'react';
 
 interface HeaderProps {
 	onCreateTask: () => void;
@@ -10,6 +10,10 @@ interface HeaderProps {
 }
 
 export function Header({ onCreateTask, inputRef }: HeaderProps) {
+	const handleKeyUp = (e: KeyboardEvent<HTMLInputElement>) => {
+		if (e.key === 'Enter') onCreateTask();
+	};
+
 	return (
 		<>
 			<header className={styles.header}>
@@ -17,7 +21,7 @@ export function Header({ onCreateTask, inputRef }: HeaderProps) {
 			</header>
 			<div className={styles['add-new-task']}>
 				<div>
-					<Input inputRef={inputRef} />
+					<Input inputRef={inputRef} onKeyUp={handleKeyUp} />
 					<Button text='Create' onClick={onCreateTask} />
 				</div>
 			</div>
